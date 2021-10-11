@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,6 @@ Route::get('/admin_dashboard', function () {
     return view('admin_dashboard');
 })->middleware(['auth', 'admin'])->name('admin_dashboard');
 
-
 require __DIR__.'/auth.php';
 
 
@@ -39,6 +39,6 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function ()
 
 // admin protected routes
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
-    Route::get('/', 'HomeController@index')->name('admin_dashboard');
-    Route::get('/users', 'AdminUserController@list')->name('admin_users');
+//    Route::get('/', 'HomeController@index')->name('admin_dashboard');
+    Route::get('/', [AdminController::class, 'index'])->name('admin_users');
 });
