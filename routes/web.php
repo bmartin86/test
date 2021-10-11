@@ -17,8 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// USER DASHBOARD
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth', 'user'])->name('dashboard');
+
+// ADMIN DASHBOARD
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard');
+})->middleware(['auth', 'admin'])->name('admin_dashboard');
+
 
 require __DIR__.'/auth.php';
+
+
+// user protected routes
+Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function () {
+    Route::get('/', 'HomeController@index')->name('user_dashboard');
+    Route::get('/list', 'UserController@list')->name('user_list');
+});
+
+// admin protected routes
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+    Route::get('/', 'HomeController@index')->name('admin_dashboard');
+    Route::get('/users', 'AdminUserController@list')->name('admin_users');
+});
