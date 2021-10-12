@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +34,12 @@ require __DIR__.'/auth.php';
 
 // user protected routes
 Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function () {
-    Route::get('/', 'HomeController@index')->name('user_dashboard');
-    Route::get('/list', 'UserController@list')->name('user_list');
+//    Route::get('/', 'HomeController@index')->name('user_dashboard');
+    Route::get('/', [UserController::class, 'index'])->name('user_home');
 });
 
 // admin protected routes
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
 //    Route::get('/', 'HomeController@index')->name('admin_dashboard');
-    Route::get('/', [AdminController::class, 'index'])->name('admin_users');
+    Route::get('/', [AdminController::class, 'index'])->name('admin_home');
 });

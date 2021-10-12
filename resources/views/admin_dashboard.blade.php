@@ -1,7 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                </div>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+        <x-nav-link :href="route('admin_home')" :active="request()->routeIs('admin_home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
         </h2>
     </x-slot>
 
