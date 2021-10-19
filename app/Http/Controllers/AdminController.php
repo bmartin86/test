@@ -14,4 +14,9 @@ class AdminController extends Controller
         $data = User::all();
         return view('admin.index', compact('data'));
     }
+
+    public function newUser(Request $request, User $user)
+    {
+
+    }
 }
