@@ -50,11 +50,20 @@
         </div>
     </div>
     <div class="container">
-        <div class="card">
-        <div class="card-header">ToDo</div>
-        <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">ToDo List</div>
+            <div class="card-body"></div>
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">New ToDo</div>  
+            <div class="card-body"></div> 
+          </div>
         </div>
+      </div>    
     </div>
     
 </div>
