@@ -59,8 +59,18 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header">New ToDo</div>  
-            <div class="card-body"></div> 
+            <div class="card-header">Add New ToDo</div>  
+            <div class="card-body">
+            <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">ToDo</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Add ToDo</button>
+</form>
+            </div> 
           </div>
         </div>
       </div>    

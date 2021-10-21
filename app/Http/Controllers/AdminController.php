@@ -16,8 +16,10 @@ class AdminController extends Controller
     }
 
     public function newUser(Request $request, User $user)
+    {}
+
+    public function showUser(Request $request, User $user)
     {
         
     }
-        
 }
